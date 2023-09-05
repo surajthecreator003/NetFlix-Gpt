@@ -2,9 +2,11 @@
 import { checkValidData } from "../utils/validate";
 import Header from "./Header";
 import {useState,useRef} from "react";
-import {createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
+import {createUserWithEmailAndPassword,signInWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 
 
@@ -12,12 +14,13 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
 
   const navigate=useNavigate();
+  const dispatch=useDispatch();
   const [isSignInForm,setIsSignInForm]=useState(true);
   const [errorMessage,setErrorMessage]=useState(null);
 
   const email=useRef(null);
   const password=useRef(null);
-  //const name=useRef(null);
+  const name=useRef(null);
 
 
   const handleButtonClick=()=>{
@@ -42,8 +45,23 @@ const Login = () => {
       createUserWithEmailAndPassword(auth, email.current.value ,password.current.value)
         .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user)//if response sucess print the user object
-        navigate("/browse")
+
+        //update path
+          updateProfile(user, {
+            displayName: name.current.value, photoURL:"https://avatars.githubusercontent.com/u/121385784?v=4"
+          }).then(() => {
+            // Profile updated!
+            //to get updated value we are taking all values from auth.currentUser rather than from user which has old data
+            const {uid,email,displayName,photoURL} = auth.currentUser;
+            dispatch(addUser({uid:uid,email:email,displayname:displayName,photoURL:photoURL}))
+            navigate("/browse")
+          }).catch((error) => {
+            // An error occurred
+            setErrorMessage(error.message)
+          });
+        
+          console.log(user)//if response sucess print the user object
+          //navigate("/browse") //deleting this as ounce my profile gets updated then navigate
         })
         .catch((error) => {
         const errorCode = error.code;
@@ -89,7 +107,7 @@ const Login = () => {
 
         <h1 className="font-bold text-xl py-4">{isSignInForm ? "Sign In" : "Sign Up"}</h1>
 
-        {!isSignInForm && (<input  type="text" placeholder="Name" className="bg-gray-500 p-4 my-4 w-full" />)}
+        {!isSignInForm && (<input ref={name} type="text" placeholder="Name" className="bg-gray-500 p-4 my-4 w-full" />)}
 
         <input ref={email} type="text" placeholder="Email Address" className="bg-gray-500 p-4 my-4 w-full" />
 
