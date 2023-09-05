@@ -13,7 +13,13 @@
 - Create Sign Up User Account
 - Implement Sign in user Api
 - Created Redux Store with userSlice
--Fetch Movies from TMDB api
+- Bug FIx if the user is not loggd in       redirect route to login page and viceversa   
+- Sign Up user Display name and Profile Bug fixed
+- Unsubscribed to the OnAuthStateChanged callback
+- Added hard coded valurs to constant.js
+- Registered for TMDB Api and got access token
+- Get Data from TMDB Now Playing List API
+
 
 
 # Features and Planning

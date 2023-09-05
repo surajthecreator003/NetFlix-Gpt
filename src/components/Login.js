@@ -4,16 +4,17 @@ import Header from "./Header";
 import {useState,useRef} from "react";
 import {createUserWithEmailAndPassword,signInWithEmailAndPassword , updateProfile} from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+//import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { USER_AVATAR } from "../utils/constant";
 
 
 
 
 const Login = () => {
 
-  const navigate=useNavigate();
+  //const navigate=useNavigate();
   const dispatch=useDispatch();
   const [isSignInForm,setIsSignInForm]=useState(true);
   const [errorMessage,setErrorMessage]=useState(null);
@@ -48,13 +49,13 @@ const Login = () => {
 
         //update path
           updateProfile(user, {
-            displayName: name.current.value, photoURL:"https://avatars.githubusercontent.com/u/121385784?v=4"
+            displayName: name.current.value, photoURL:USER_AVATAR
           }).then(() => {
             // Profile updated!
             //to get updated value we are taking all values from auth.currentUser rather than from user which has old data
             const {uid,email,displayName,photoURL} = auth.currentUser;
             dispatch(addUser({uid:uid,email:email,displayname:displayName,photoURL:photoURL}))
-            navigate("/browse")
+            //navigate("/browse")
           }).catch((error) => {
             // An error occurred
             setErrorMessage(error.message)
@@ -76,7 +77,7 @@ const Login = () => {
       .then((userCredential) => { 
       const user = userCredential.user; 
       console.log(user);
-      navigate("/browse")
+      //navigate("/browse")
         })  
       .catch((error) => {
         const errorCode = error.code;
