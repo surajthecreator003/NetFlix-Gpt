@@ -19,6 +19,12 @@
 - Added hard coded values to constant.js
 - Registered for TMDB Api and got access token
 - Get Data from TMDB Now Playing List API
+- Crated Custom Hook for NowplayingMovies
+- Updated the Store with movies data
+-Planning for main container and Secondary Container
+- Fetch Data for Trailer Video 
+- Update Store with Video Data
+- Embeded thenYoutube Video and made it autoplay and mute
 
 
 
