@@ -25,6 +25,9 @@
 - Fetch Data for Trailer Video 
 - Update Store with Video Data
 - Embeded thenYoutube Video and made it autoplay and mute
+- build Movie List and Movie Card
+- Improved the Browser page CDN
+- usePopularMovies Custom Hook
 
 
 
