@@ -28,6 +28,8 @@
 - build Movie List and Movie Card
 - Improved the Browser page CDN
 - usePopularMovies Custom Hook
+- GPT Search Freature
+- 
 
 
 
