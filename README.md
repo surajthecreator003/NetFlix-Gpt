@@ -29,7 +29,7 @@
 - Improved the Browser page CDN
 - usePopularMovies Custom Hook
 - GPT Search Freature
-- 
+-  Integrate GPT API's(Get Open Ai Key)
 
 
 

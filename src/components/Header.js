@@ -82,7 +82,7 @@ const Header = () => {
             }
 
           <button className="py-2 px-4 mx-5 my-2 bg-purple-800 text-white rounded-lg"
-          onClick={handleGptSearchClick}>{showGptSearch ?"Home Pag" : "GPT Search"}</button>
+          onClick={handleGptSearchClick}>{showGptSearch ?"Home Page" : "GPT Search"}</button>
 
           <img className="w-12 h-12 " alt="user-icon" src={user?.photoURL}/>
 

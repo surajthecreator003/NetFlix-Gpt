@@ -1,6 +1,6 @@
 import { API_OPTIONS } from '../utils/constant';
 import { useEffect } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { addTrailerVideo } from '../utils/moviesSlice';
 
 
@@ -9,8 +9,11 @@ const  useMovieTrailer=()=>{
 
     //solving the trailer variable problem with redux store
     const dispatch=useDispatch();
-
     //subscribing to redux store for trailer variable
+
+
+    const  nowPlayingMovies = useSelector(store => store.movies.nowPlayingMovies);
+
     
 
 
@@ -32,7 +35,9 @@ const  useMovieTrailer=()=>{
     }
 
     useEffect(()=>{
-        getMovieVideos();
+
+        if (!nowPlayingMovies) getMovieVideos();
+        
     },[])
 
 }
