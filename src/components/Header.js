@@ -69,8 +69,8 @@ const Header = () => {
 
   return (
 
-    <div className="flex justify-between absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full">
-        <img className="w-44" src={LOGO} alt="Logo" />
+    <div className="flex flex-col md:flex-row justify-center md:justify-between absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full bg-black sm:bg-blue-900 md:bg-green-900">
+        <img className="w-44 mx-auto md:mx-0" src={LOGO} alt="Logo" />
 
         {user && 
           <div className="flex p-2">

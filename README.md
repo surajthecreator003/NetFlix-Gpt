@@ -1,4 +1,6 @@
 
+NetFlix GPT Live Link-> https://net-flix-gpt.vercel.app/browse
+
 # Netflix GPT
 - created react app
 - configured tailwind css
@@ -48,3 +50,13 @@
 - Netflix GPT
     - Search Bar
     - Movie Suggestion
+
+
+
+# FUTURE PLANNINGS
+
+- ADD A CUSTOM OPEN AI API INPUT BOX SO USER CAN GIVE THEIR OWN OPEN APPI KEY SO WHEN YOU PRESS UPDATE BUTTON WHICH IS BESIDE IT THEN IT WILL UPDATE THE REDUX STORE AND CHANGE THE OPEN AI API WITH useState WITH A DIFFERENET VARIABLE WHICH WOULD HAVE SUBBED TO THE REDUX STORE
+
+- Need to make Site Responsive
+
+- make own Fav icon
