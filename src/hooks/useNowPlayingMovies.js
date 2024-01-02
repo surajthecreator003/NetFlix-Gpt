@@ -22,7 +22,7 @@ const useNowPlayingMovies=()=>{
     
     }
     
-    useEffect(()=>{!nowPlayingMovies && getNowPlayingMovies()},[])
+    useEffect(()=>{!nowPlayingMovies && getNowPlayingMovies()})
 
     
 }

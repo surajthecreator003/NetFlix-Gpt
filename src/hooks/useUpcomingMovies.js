@@ -21,7 +21,7 @@ const useUpcomingMovies=()=>{
     }
     
     useEffect(()=>{
-      !upComingMovies && getUpcomingMovies()},[])
+      !upComingMovies && getUpcomingMovies()})
 
     
 }

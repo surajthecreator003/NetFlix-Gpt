@@ -20,7 +20,7 @@ const useTrendingMovies=()=>{
       dispatch(addTrendingMovies(json.results))    
     }
     
-    useEffect(()=>{!trendingMovies && getTrendingMovies()},[])
+    useEffect(()=>{!trendingMovies && getTrendingMovies()})
 
     
 }

@@ -10,7 +10,8 @@ const MainContainer = () => {
     if (movies === null) return;//early return as first in our redux store the movies will be having null
 
     const mainMovie=movies[0];
-    console.log(mainMovie);
+
+    console.log("Hey mainMovie[0] here=",mainMovie);//remove this
 
     const {original_title,overview,id}=mainMovie;
 
